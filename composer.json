@@ -27,11 +27,10 @@
         "friendsofphp/php-cs-fixer": "^2.12",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message-factory": "^1.0.2",
-        "phpunit/phpunit": "^5.7.26",
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {
-        "contao-manager-plugin": "Xippo\\ContaoBootstrapSliderBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "XippoGmbH\\ContaoBootstrapSliderBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
