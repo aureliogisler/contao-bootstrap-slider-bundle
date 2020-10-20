@@ -16,14 +16,13 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
                 $result = $db->prepare('SELECT `name` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
                              ->execute([$pid]);
                 $prefix = strtoupper(substr($result->name, 0, 2));
-                $GLOBALS['TL_DCA']['tl_xippo_bs_slid']['fields']['number']['default'] = $prefix;
             },
         ]
     ],
     'list' => [
         'sorting' => [
             'mode' => 1,
-            'fields' => ['name'],
+            'fields' => ['sorting'],
             'flag' => 1,
             'panelLayout' => 'search,limit'
         ],
@@ -81,6 +80,6 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
         ],
     ],
     'palettes' => [
-        'default' => '{slider_legend},name;{image},image'
+        'default' => '{slider_legend},name,image'
     ],
 ];
