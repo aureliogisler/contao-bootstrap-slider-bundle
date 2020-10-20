@@ -8,15 +8,6 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
             'keys' => [
                 'id' => 'primary',
             ],
-        ],
-		'onload_callback' => [
-            function () {
-                $db = Database::getInstance();
-                $pid = Input::get('pid');
-                $result = $db->prepare('SELECT `name` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
-                             ->execute([$pid]);
-                $prefix = strtoupper(substr($result->name, 0, 2));
-            },
         ]
     ],
     'list' => [
