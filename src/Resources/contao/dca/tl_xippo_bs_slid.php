@@ -63,8 +63,8 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0]
         ],
 		'sorting' => [
-			'sql' => "int(10) unsigned NOT NULL default '0'"
-		]
+			'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0 ]
+		],
         'name' => [
             'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slid']['name'],
             'search' => true,
