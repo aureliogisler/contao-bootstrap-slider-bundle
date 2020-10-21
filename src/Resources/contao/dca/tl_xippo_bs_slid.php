@@ -17,7 +17,6 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
                 $result = $db->prepare('SELECT `name` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
                              ->execute([$pid]);
                 $prefix = strtoupper(substr($result->name, 0, 2));
-                $GLOBALS['TL_DCA']['tl_xippo_bs_slid']['fields']['number']['default'] = $prefix;
             },
         ]
     ],
