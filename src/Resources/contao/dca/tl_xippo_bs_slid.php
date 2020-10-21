@@ -2,7 +2,7 @@
 $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
     'config' => [
         'dataContainer' => 'Table',
-		'ptable' => ['tl_xippo_bs_slider'],
+		'ptable' => 'tl_xippo_bs_slider',
         'ctable' => ['tl_content'],
         'enableVersioning' => true,
         'sql' => [
