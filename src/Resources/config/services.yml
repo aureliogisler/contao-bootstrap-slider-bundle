@@ -1,4 +1,8 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
     _instanceof:
         Contao\CoreBundle\Framework\FrameworkAwareInterface:
             calls:
@@ -8,12 +12,3 @@ services:
             calls:
                 - ["setContainer", ["@service_container"]]
                 
-    App\Controller\ContentElement\BootstrapSliderContentController:
-        tags:
-            -
-                name: contao.content_element
-                category: texts
-                template: ce_bootstrapSlider
-                method: getCustomResponse
-                renderer: esi
-                type: my_custom_type
