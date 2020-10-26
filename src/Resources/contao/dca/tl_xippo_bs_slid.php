@@ -18,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
                              ->execute([$pid]);
                 $prefix = strtoupper(substr($result->name, 0, 2));
             },
-        ]
+        ],
     ],
     'list' => [
         'sorting' => [
