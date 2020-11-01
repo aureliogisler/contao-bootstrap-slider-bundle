@@ -10,26 +10,16 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
                 'id' => 'primary',
             ],
         ],
-		'onload_callback' => [
-            function () {
-                $db = \Contao\Database::getInstance();
-                $pid = \Contao\Input::get('pid');
-                $result = $db->prepare('SELECT `title` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
-                             ->execute([$pid]);
-                $prefix = strtoupper(substr($result->title, 0, 2));
-            },
-        ],
     ],
     'list' => [
         'sorting' => [
             'mode' => 4,
             'fields' => ['sorting'],
+			'panelLayout' => 'filter;search,limit',
             'headerFields' => ['title'],
-            'panelLayout' => 'search,limit'
         ],
         'label' => [
             'fields' => ['title'],
-            'format' => '%s',
         ],
         'operations' => [
             'edit' => [
@@ -40,6 +30,16 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
                 'href' => 'act=edit',
                 'icon' => 'header.svg',
             ],
+			'copy' => [
+				'label' => &$GLOBALS['TL_LANG']['tl_video']['copy'],
+				'href' => 'act=page&amp;mode=copy',
+				'icon' => 'copy.gif'
+			],
+			'cut' => [
+				'label' => &$GLOBALS['TL_LANG']['tl_video']['cut'],
+				'href' => 'act=paste&amp;mode=cut',
+				'icon' => 'cut.gif'
+			],
             'delete' => [
                 'href' => 'act=delete',
                 'icon' => 'delete.svg',
@@ -111,3 +111,4 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
         'default' => '{slider_legend},title,singleSRC;{expert_legend},cssId,cssClass;'
     ],
 ];
+
