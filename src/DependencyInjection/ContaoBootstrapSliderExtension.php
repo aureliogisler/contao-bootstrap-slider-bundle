@@ -1,11 +1,14 @@
 <?php
-
-/*
- * This file is part of [package name].
+/**
+ * This file is part of a Xippo GmbH Contao Bundle.
  *
- * (c) John Doe
+ * (c) Aurelio Gisler (Xippo GmbH)
  *
- * @license LGPL-3.0-or-later
+ * @author     Aurelio Gisler
+ * @package    ContaoBootstrapSlider
+ * @license    MIT
+ * @see        https://github.com/xippoGmbH/contao-bootstrap-slider-bundle
+ *
  */
 
 namespace XippoGmbH\ContaoBootstrapSliderBundle\DependencyInjection;

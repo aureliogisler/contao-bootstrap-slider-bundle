@@ -1,14 +1,14 @@
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-    _instanceof:
-        Contao\CoreBundle\Framework\FrameworkAwareInterface:
-            calls:
-                - ["setFramework", ["@contao.framework"]]
-
-        Symfony\Component\DependencyInjection\ContainerAwareInterface:
-            calls:
-                - ["setContainer", ["@service_container"]]
-                
+    xippogmbh_contao_bootstrap_slider_bundle.dca_helper:
+            class: XippoGmbH\ContaoBootstrapSliderBundle\Dca\Helper
+            public: true
+            arguments:
+                - '@security.token_storage'
+    xippogmbh_contao_bootstrap_slider_bundle.content_element:
+        class: XippoGmbH\ContaoBootstrapSliderBundle\Controller\ContentElement\ContentBootstrapSliderController
+        arguments:
+            - '@contao.framework'
+        tags:
+            - { name: contao.content_element, category: xippo_elements, template: ce_bootstrapSlider, type: bootstrapSlider_id }
+            - { name: container.service_subscriber }
+        public: true

@@ -11,13 +11,8 @@
  *
  */
 
-
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_content']['bootstrapSlider'] = array('Slider', 'Bitte wählen Sie einen Slider aus.');
-
-/**
- * Legends
- */
-$GLOBALS['TL_LANG']['tl_content']['bootstrapSlider_legend'] = 'Bootstrap Slider';
+$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['title'] = array('Titel', 'Geben Sie einen Namen für das Slide an!');
+$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['image'] = array('Hintergrundbild', 'Wählen Sie ein Hintergrundbild.');

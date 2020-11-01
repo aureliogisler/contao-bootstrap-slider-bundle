@@ -1,5 +1,18 @@
-// src/Controller/BackendController.php
-namespace App\Controller;
+<?php
+/**
+ * This file is part of a Xippo GmbH Contao Bundle.
+ *
+ * (c) Aurelio Gisler (Xippo GmbH)
+ *
+ * @author     Aurelio Gisler
+ * @package    ContaoBootstrapSlider
+ * @license    MIT
+ * @see        https://github.com/xippoGmbH/contao-bootstrap-slider-bundle
+ *
+ */
+declare(strict_types=1);
+
+namespace XippoGmbH\ContaoBootstrapSliderBundle\Controller
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;

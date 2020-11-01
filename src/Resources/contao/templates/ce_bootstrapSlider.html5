@@ -1,4 +1,17 @@
-<!-- contao/templates/ce_my_content_element.html5 -->
-<div class="my-content-element">    
-    <?= $this->text; ?>
-</div>
+<!-- contao/templates/ce_bootstrapSlider.html5 -->
+<section>
+	<?php if($this->slider->slideCount > 0): ?>
+	<div id="carouselExampleIndicators<?= $this->id ?> <?= $this->cssID ?>" class="carousel slide <?= $this->class ?>" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<?php for($i = 0; $i < $this->slider->slideCount; $i++) { ?>
+				<li data-target="#carouselExampleIndicators<?= $this->id ?>" data-slide-to="<?php echo $i; ?>" <?php if($i == 0) { ?>class="active"<?php } ?>></li>
+			<?php } ?>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<?php $this->insert('ce_slide', $this->arrData); ?>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators<?= $this->id ?>" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators<?= $this->id ?>" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
+	</div>
+	<?php endif; ?>
+</section>

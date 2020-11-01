@@ -2,7 +2,7 @@
 $GLOBALS['TL_DCA']['tl_xippo_bs_slider'] = [
     'config' => [
         'dataContainer' => 'Table',
-        'ctable' => ['tl_xippo_bs_slid'],
+        'ctable' => ['tl_xippo_bs_slide'],
         'enableVersioning' => true,
         'sql' => [
             'keys' => [
@@ -13,17 +13,17 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slider'] = [
     'list' => [
         'sorting' => [
             'mode' => 1,
-            'fields' => ['name'],
+            'fields' => ['title'],
             'flag' => 1,
             'panelLayout' => 'search,limit'
         ],
         'label' => [
-            'fields' => ['name'],
+            'fields' => ['title'],
             'format' => '%s',
         ],
         'operations' => [
             'edit' => [
-                'href' => 'table=tl_xippo_bs_slid',
+                'href' => 'table=tl_xippo_bs_slide',
                 'icon' => 'edit.svg',
             ],
             'editheader' => [
@@ -47,8 +47,8 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slider'] = [
         'tstamp' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0]
         ],
-        'name' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slider']['name'],
+        'title' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slider']['title'],
             'search' => true,
             'inputType' => 'text',
             'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
@@ -56,6 +56,6 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slider'] = [
         ],
     ],
     'palettes' => [
-        'default' => '{slider_legend},name'
+        'default' => '{slider_legend},title'
     ],
 ];

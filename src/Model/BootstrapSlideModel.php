@@ -10,14 +10,13 @@
  * @see        https://github.com/xippoGmbH/contao-bootstrap-slider-bundle
  *
  */
+declare(strict_types=1);
 
+namespace XippoGmbH\ContaoBootstrapSliderBundle\Model;
 
-/**
- * Fields
- */
-$GLOBALS['TL_LANG']['tl_content']['bootstrapSlider'] = array('Slider', 'Bitte wählen Sie einen Slider aus.');
+use Contao\Model;
 
-/**
- * Legends
- */
-$GLOBALS['TL_LANG']['tl_content']['bootstrapSlider_legend'] = 'Bootstrap Slider';
+class BootstrapSlideModel extends Model
+{
+    protected static $strTable = 'tl_xippo_bs_slide';
+}

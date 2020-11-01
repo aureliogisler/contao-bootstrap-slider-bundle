@@ -1,5 +1,5 @@
-// contao/dca/tl_xippo_bs_slid.php
-$GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
+// contao/dca/tl_xippo_bs_slide.php
+$GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
     'config' => [
         'dataContainer' => 'Table',
 		'ptable' => 'tl_xippo_bs_slider',
@@ -14,21 +14,21 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
             function () {
                 $db = \Contao\Database::getInstance();
                 $pid = \Contao\Input::get('pid');
-                $result = $db->prepare('SELECT `name` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
+                $result = $db->prepare('SELECT `title` FROM `tl_xippo_bs_slider` WHERE `id` = ?')
                              ->execute([$pid]);
-                $prefix = strtoupper(substr($result->name, 0, 2));
+                $prefix = strtoupper(substr($result->title, 0, 2));
             },
         ],
     ],
     'list' => [
         'sorting' => [
-            'mode' => 1,
+            'mode' => 4,
             'fields' => ['sorting'],
-            'flag' => 1,
+            'headerFields' => ['title'],
             'panelLayout' => 'search,limit'
         ],
         'label' => [
-            'fields' => ['name'],
+            'fields' => ['title'],
             'format' => '%s',
         ],
         'operations' => [
@@ -55,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'autoincrement' => true],
         ],
 		'pid' => [
-            'foreignKey' => 'tl_xippo_bs_slider.name',
+            'foreignKey' => 'tl_xippo_bs_slider.title',
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
             'relation' => ['type'=>'belongsTo', 'load'=>'lazy']
         ],
@@ -65,22 +65,49 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slid'] = [
 		'sorting' => [
 			'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0 ]
 		],
-        'name' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slid']['name'],
-            'search' => true,
+        'title' => [
+            'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
-            'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+            'eval' => [
+                'mandatory' => true,
+                'maxlength' => 255,
+            ],
+            'sql' => "varchar(255) NOT NULL default ''",
         ],
-		'image' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slid']['image'],
-            'search' => false,
+		'singleSRC' => [
+            'exclude' => true,
             'inputType' => 'fileTree',
-            'eval' => ['filesOnly' => 'true', 'fieldType' => 'radio'],
-            'sql' => ['type' => 'binary', 'length' => 16]
+            'eval' => [
+                'fieldType' => 'radio',
+                'files' => true,
+                'filesOnly' => true,
+                'extensions' => \Config::get('validImageTypes'),
+                'mandatory' => false,
+            ],
+            'sql' => 'binary(16) NULL',
+            'save_callback' => [
+                ['xippogmbh_contao_bootstrap_slider_bundle.dca_helper', 'storeFileMetaInformation'],
+            ],
+        ],
+		'cssClass' => [
+			'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['cssClass'],
+			'inputType' => 'text',
+			'eval' => array( 'maxlength'=>128, 'tl_class'=>'w50'),
+			'sql' => "varchar(128) NOT NULL default ''"
+		],
+        'cssID' => [
+			'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['cssID'],
+            'exclude' => true,
+            'inputType' => 'text',
+            'eval' => [
+                'multiple' => true,
+                'size' => 2,
+                'tl_class' => 'w50 clr',
+            ],
+            'sql' => "varchar(255) NOT NULL default ''",
         ],
     ],
     'palettes' => [
-        'default' => '{slider_legend},name,image'
+        'default' => '{slider_legend},title,singleSRC;{expert_legend},cssId,cssClass;'
     ],
 ];
