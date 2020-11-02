@@ -16,3 +16,4 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_xippo_bs_slider']['title'] = array('Titel', 'Geben Sie einen Namen für den Slider an!');
+$GLOBALS['TL_LANG']['tl_xippo_bs_slider']['slider_legend'] = 'Slider';

@@ -17,6 +17,9 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
             'fields' => ['sorting'],
 			'panelLayout' => 'filter;search,limit',
             'headerFields' => ['title'],
+			'child_record_callback' => function (array $row) {
+                return '<div class="tl_content_left">'.$row['title'].'</div>';
+            },
         ],
         'label' => [
             'fields' => ['title'],
@@ -91,24 +94,21 @@ $GLOBALS['TL_DCA']['tl_xippo_bs_slide'] = [
         ],
 		'cssClass' => [
 			'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['cssClass'],
+            'exclude' => true,
 			'inputType' => 'text',
-			'eval' => array( 'maxlength'=>128, 'tl_class'=>'w50'),
+			'eval' => [ 'maxlength'=>128, 'tl_class'=>'w50'],
 			'sql' => "varchar(128) NOT NULL default ''"
 		],
         'cssID' => [
 			'label' => &$GLOBALS['TL_LANG']['tl_xippo_bs_slide']['cssID'],
             'exclude' => true,
             'inputType' => 'text',
-            'eval' => [
-                'multiple' => true,
-                'size' => 2,
-                'tl_class' => 'w50 clr',
-            ],
+            'eval' => [ 'multiple' => true, 'size' => 2, 'tl_class' => 'w50 clr', ],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
     ],
     'palettes' => [
-        'default' => '{slider_legend},title,singleSRC;{expert_legend},cssId,cssClass;'
+        'default' => '{slider_legend},title,singleSRC;{expert_legend},cssID,cssClass;'
     ],
 ];
 

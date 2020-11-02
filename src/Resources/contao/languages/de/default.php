@@ -15,7 +15,7 @@
  * Content element
  */
 $GLOBALS['TL_LANG']['CTE']['xippo_elements'] = 'Xippo GmbH - Module';
-$GLOBALS['TL_LANG']['CTE']['bootstrapSlider'] = ['Bootstrap Slider', 'Einen Bootstrap-Slider zur Seite hinzufügen.'];
+$GLOBALS['TL_LANG']['CTE']['bootstrapSlider_id'] = ['Bootstrap Slider', 'Einen Bootstrap-Slider zur Seite hinzufügen.'];
 
 /**
  * Miscelaneous
